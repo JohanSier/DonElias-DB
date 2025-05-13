@@ -1,3 +1,4 @@
+-- ************************************ CREACION TABLAS E INSERCION DE DATOS ************************************
 USE DonElias
 GO
 -----
@@ -338,6 +339,7 @@ CREATE TABLE [Empleados](
     [Id_Sucursal] int NOT NULL,
     [Id_Cargo] int NOT NULL,
     [Nombre_Completo] varchar(100) NOT NULL,
+    [Edad] int NOT NULL,
     [Cedula] int NOT NULL,
     [Salario] int NOT NULL,
     [Inicio_Turno] time NOT NULL,
@@ -349,28 +351,28 @@ CREATE TABLE [Empleados](
 GO
 
 INSERT INTO [Empleados] (
-    [Id_Sucursal], [Id_Cargo], [Nombre_Completo], [Cedula], [Salario], [Inicio_Turno], [Fin_Turno]
+    [Id_Sucursal], [Id_Cargo], [Nombre_Completo], [Edad], [Cedula], [Salario], [Inicio_Turno], [Fin_Turno]
 )
 VALUES 
-(1, 3, 'Camila Torres Ramirez', 1024587412, 3500000, '07:00', '16:00'),
+(1, 3, 'Camila Torres Ramirez', 26, 1024587412, 3500000, '07:00', '16:00'),
 
-(2, 1, 'Luis Miguel Rios Castaño', 1008235698, 1800000, '08:00', '17:00'),
+(2, 1, 'Luis Miguel Rios Castaño', 18, 1008235698, 1800000, '08:00', '17:00'),
 
-(3, 4, 'Otoniel Humberto Gomez Duarte', 1015648932, 4200000, '09:00', '18:00'),
+(3, 4, 'Otoniel Humberto Gomez Duarte', 32, 1015648932, 4200000, '09:00', '18:00'),
 
-(4, 2, 'Jorge Andres Ruiz Vargas', 1025698745, 1900000, '10:00', '19:00'),
+(4, 2, 'Jorge Andres Ruiz Vargas', 19, 1025698745, 1900000, '10:00', '19:00'),
 
-(5, 6, 'Maria Fernanda Salazar Gutierrez', 1002589637, 3600000, '07:00', '16:00'),
+(5, 6, 'Maria Fernanda Salazar Gutierrez', 22, 1002589637, 3600000, '07:00', '16:00'),
 
-(6, 7, 'Carlos Esteban Perez Leon', 1023498754, 2600000, '12:00', '21:00'),
+(6, 7, 'Carlos Esteban Perez Leon', 20, 1023498754, 2600000, '12:00', '21:00'),
 
-(7, 5, 'Paula Andrea Mendoza Morales', 1014587963, 2500000, '06:00', '15:00'),
+(7, 5, 'Paula Andrea Mendoza Morales', 42, 1014587963, 2500000, '06:00', '15:00'),
 
-(8, 1, 'Natalia Isabel Torres Rincon', 1001265874, 1800000, '08:00', '17:00'),
+(8, 1, 'Natalia Isabel Torres Rincon', 30, 1001265874, 1800000, '08:00', '17:00'),
 
-(9, 9, 'Santiago Alfonso Ortiz Silva', 1008459621, 2300000, '14:00', '22:00'),
+(9, 9, 'Santiago Alfonso Ortiz Silva', 29, 1008459621, 2300000, '14:00', '22:00'),
 
-(10, 8, 'Julian Mauricio Castro Niño', 1021548796, 3000000, '11:00', '20:00');
+(10, 8, 'Julian Mauricio Castro Niño', 25, 1021548796, 3000000, '11:00', '20:00');
 
 GO
 -------------------------------
@@ -459,19 +461,31 @@ VALUES
 
 (3, 'Carlos Andrés Torres Jiménez', 'carlos.torres@hotmail.com', '3156789012'),
 
-(4, 'Laura Vanessa Martínez Díaz', 'laura.martinez@gmail.com', '3109876543'),
+(4, 'Laura Vanessa Martínez Díaz', 'laura.martinez@gmail.com', '+1 210 403 8284'),
 
 (5, 'José Manuel Herrera Castro', 'jose.herrera@outlook.com', '3161234567'),
 
-(6, 'Ana Sofía Ramírez Morales', 'ana.ramirez@gmail.com', '3112345678'),
+(6, 'Ana Sofía Ramírez Morales', 'ana.ramirez@gmail.com', '+1 523 543 1642'),
 
 (7, 'David Santiago Ruiz Peña', 'david.ruiz@gmail.com', '3178765432'),
 
 (8, 'Camila Daniela Romero Vargas', 'camila.romero@gmail.com', '3145678901'),
 
-(9, 'Mateo Nicolás Castaño Mejía', 'mateo.castano@gmail.com', '3133456789'),
+(9, 'Mateo Nicolás Castaño Mejía', 'mateo.castano@gmail.com', '+1 253 253 2950'),
 
-(10, 'Valentina Isabel Pineda Lozano', 'valentina.pineda@gmail.com', '3120987654');
+(10, 'Valentina Isabel Pineda Lozano', 'valentina.pineda@gmail.com', '3120987654'),
+
+(NULL, 'Jorge Alejandro Magno Maldonado' ,'alejandromagperez@gmail.com', '+1 555 555 1234'),
+
+(NULL, 'Sofia Marcela Reyes Delgado', 'sofia.reyes@gmail.com', '+1 532 124 5323'),
+
+(NULL, 'Esteban David Moreno Páez', 'esteban.moreno@hotmail.com', '3124567890'),
+
+(NULL, 'Luisa Fernanda Acosta Ríos', 'luisa.acosta@outlook.com', '+1 934 235 1954'),
+
+(NULL, 'Diego Alejandro Muñoz Londoño', 'diego.munoz@gmail.com', '3134567812'),
+
+(NULL, 'Isabella Valentina Nieto Cárdenas', 'isabella.nieto@gmail.com', '3157890123')
 GO
 
 -------------------------------
@@ -615,3 +629,32 @@ INSERT INTO [Facturas] ([Id_Pedido], [IVA], [Monto_Total]) VALUES
 (10, 9405, 58905);
 GO
 ------------------------------------
+
+-- ************************************ SELECTS BASICOS ************************************
+SELECT * FROM Productos
+WHERE Precio_Venta <= 10000;
+---
+SELECT Nombre_Completo, Inicio_Turno, Fin_Turno FROM Empleados
+WHERE Fin_Turno > '17:00'
+ORDER BY Nombre_Completo;
+---
+SELECT Id_Empleado, Id_Sucursal, Nombre_Completo, Salario FROM Empleados
+WHERE Edad <= 20
+ORDER BY Salario ASC;
+
+---
+SELECT Id_Sucursal, Direccion, Capacidad_Almacenamiento FROM Sucursales
+ORDER BY Capacidad_Almacenamiento ASC;
+
+---
+SELECT Nombre_Completo, Correo FROM Clientes 
+WHERE Id_Programa_Lealtad IS NULL
+ORDER BY Nombre_Completo;
+
+---
+SELECT Nombre_Completo, Correo FROM Clientes 
+WHERE Telefono LIKE '+1%';
+
+SELECT Nombre_Completo, Correo FROM Clientes 
+WHERE Telefono NOT LIKE '+1%';
+---
