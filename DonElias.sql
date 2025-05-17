@@ -627,3 +627,31 @@ INSERT INTO [Facturas] ([Id_Pedido], [IVA], [Monto_Total]) VALUES
 (10, 9405, 58905);
 GO
 ------------------------------------
+-- ************************************ SELECTS BASICOS ************************************
+SELECT * FROM Productos
+WHERE Precio_Venta <= 10000;
+---
+SELECT Nombre_Completo, Inicio_Turno, Fin_Turno FROM Empleados
+WHERE Fin_Turno > '17:00'
+ORDER BY Nombre_Completo;
+---
+SELECT Id_Empleado, Id_Sucursal, Nombre_Completo, Salario FROM Empleados
+WHERE Edad <= 20
+ORDER BY Salario ASC;
+
+---
+SELECT Id_Sucursal, Direccion, Capacidad_Almacenamiento FROM Sucursales
+ORDER BY Capacidad_Almacenamiento ASC;
+
+---
+SELECT Nombre_Completo, Correo FROM Clientes 
+WHERE Id_Programa_Lealtad IS NULL
+ORDER BY Nombre_Completo;
+
+---
+SELECT Nombre_Completo, Correo FROM Clientes 
+WHERE Telefono LIKE '+1%';
+
+SELECT Nombre_Completo, Correo FROM Clientes 
+WHERE Telefono NOT LIKE '+1%';
+---
