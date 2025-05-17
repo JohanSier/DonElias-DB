@@ -641,7 +641,7 @@ ORDER BY Salario ASC;
 
 ---
 SELECT Id_Sucursal, Direccion, Capacidad_Almacenamiento FROM Sucursales
-ORDER BY Capacidad_Almacenamiento ASC;
+ORDER BY Capacidad_Almacenamiento DESC;
 
 ---
 SELECT Nombre_Completo, Correo FROM Clientes 
