@@ -4,7 +4,7 @@ GO
 -----
 CREATE TABLE [Promociones] (
    [Id_Promocion] int IDENTITY(1,1) PRIMARY KEY,
-   [Nombre] varchar(50) NOT NULL,
+   [Nombre] varchar(100) NOT NULL,
    [Fecha_Inicio] date NOT NULL,
    [Fecha_Finalizacion] date NOT NULL
 );
