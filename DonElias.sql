@@ -631,7 +631,9 @@ GO
 SELECT * FROM Productos
 WHERE Precio_Venta <= 10000;
 ---
-SELECT Nombre_Completo, Inicio_Turno, Fin_Turno FROM Empleados
+SELECT Nombre_Completo, CONVERT(varchar(8), Inicio_Turno, 108) AS Inicio_Turno, 
+       CONVERT(varchar(8), Fin_Turno, 108) AS Fin_Turno
+ FROM Empleados
 WHERE Fin_Turno > '17:00'
 ORDER BY Nombre_Completo;
 ---
