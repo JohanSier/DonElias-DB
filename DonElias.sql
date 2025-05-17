@@ -123,7 +123,7 @@ VALUES
 
 (4, NULL, 'Tomates chonto', 5200, 4000, 80, '2025-05-28'),
 
-(10, NULL, 'Pizza congelada Zenu 500g', 11900, 9500, 75, '2025-07-05');
+(10, NULL, 'Pizza congelada Zenu 500g', 11900, 9500, 75, '2025-07-05'),
 
 (8, 8, 'Pasta Doria 500g', 6200, 4700, 130, '2026-04-01'),
 
@@ -155,8 +155,6 @@ VALUES
 GO
 
 --------------------
-
-
 CREATE TABLE [Lotes_Productos] (
    [Id_Producto] int NOT NULL,
    [Id_Lote] int NOT NULL,
@@ -345,7 +343,7 @@ CREATE TABLE [Empleados](
     [Inicio_Turno] time NOT NULL,
     [Fin_Turno] time NOT NULL
 
-    FOREIGN KEY ([Id_Sucursal]) REFERENCES [Sucursales]([Id_Sucursal])
+    FOREIGN KEY ([Id_Sucursal]) REFERENCES [Sucursales]([Id_Sucursal]),
     FOREIGN KEY ([Id_Cargo]) REFERENCES [Cargo_de_Empleado]([Id_Cargo])
 )
 GO
