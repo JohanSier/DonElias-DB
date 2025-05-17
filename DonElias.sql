@@ -311,7 +311,7 @@ GO
 
 CREATE TABLE [Cargo_de_Empleado](
     [Id_Cargo] int IDENTITY(1,1) PRIMARY KEY,
-    [Nombre] varchar(20) NOT NULL
+    [Nombre] varchar(50) NOT NULL
 )
 GO
 
@@ -572,7 +572,7 @@ CREATE TABLE [Pedidos_Productos](
 );
 GO
 
-INSERT INTO [Detalle_Pedido] ([Id_Pedido], [Id_Producto], [Cantidad], [Precio_Unitario]) VALUES
+INSERT INTO [Pedidos_Productos] ([Id_Pedido], [Id_Producto], [Cantidad], [Precio_Unitario]) VALUES
 (1, 1, 2, 8600),
 (1, 3, 1, 5500),
 
@@ -627,32 +627,3 @@ INSERT INTO [Facturas] ([Id_Pedido], [IVA], [Monto_Total]) VALUES
 (10, 9405, 58905);
 GO
 ------------------------------------
-
--- ************************************ SELECTS BASICOS ************************************
-SELECT * FROM Productos
-WHERE Precio_Venta <= 10000;
----
-SELECT Nombre_Completo, Inicio_Turno, Fin_Turno FROM Empleados
-WHERE Fin_Turno > '17:00'
-ORDER BY Nombre_Completo;
----
-SELECT Id_Empleado, Id_Sucursal, Nombre_Completo, Salario FROM Empleados
-WHERE Edad <= 20
-ORDER BY Salario ASC;
-
----
-SELECT Id_Sucursal, Direccion, Capacidad_Almacenamiento FROM Sucursales
-ORDER BY Capacidad_Almacenamiento ASC;
-
----
-SELECT Nombre_Completo, Correo FROM Clientes 
-WHERE Id_Programa_Lealtad IS NULL
-ORDER BY Nombre_Completo;
-
----
-SELECT Nombre_Completo, Correo FROM Clientes 
-WHERE Telefono LIKE '+1%';
-
-SELECT Nombre_Completo, Correo FROM Clientes 
-WHERE Telefono NOT LIKE '+1%';
----
