@@ -774,7 +774,7 @@ UPDATE Inventarios
 SET Stock_Actual = Stock_Actual + 100, Ultima_Actualizacion = GETDATE()
 WHERE Id_Producto = 1;
 
--- ************************************ JOINS ************************************
+-- ************************************ JOINS y AGRUPACIONES ************************************
 -- Saber cuales son los productos más vendidos:
 SELECT P.Nombre, SUM(PP.Cantidad) AS Total_Vendido
 FROM Pedidos_Productos PP
@@ -794,3 +794,40 @@ FROM Clientes C
 JOIN Pedidos P ON C.Id_Cliente = P.Id_Cliente
 JOIN Facturas F ON P.Id_Pedido = F.Id_Pedido
 GROUP BY C.Nombre_Completo;
+
+-- ********************************** VISTAS *****************************************
+CREATE VIEW ProductosConPromocionActiva AS
+SELECT 
+    P.Nombre AS Producto,
+    C.Nombre AS Categoria,
+    PR.Nombre AS Promocion,
+    PR.Fecha_Finalizacion,
+    P.Precio_Venta
+FROM Productos P
+JOIN Categoria_de_Productos C ON P.Id_Categoria = C.Id_Categoria
+JOIN Promociones PR ON P.Id_Promocion = PR.Id_Promocion
+WHERE PR.Fecha_Finalizacion >= GETDATE();
+
+-- Factura
+CREATE VIEW ResumenFacturas AS
+SELECT 
+    F.Id_Factura,
+    C.Nombre_Completo AS Cliente,
+    F.Monto_Total,
+    F.IVA,
+    P.Fecha_Pedido
+FROM Facturas F
+JOIN Pedidos P ON F.Id_Pedido = P.Id_Pedido
+JOIN Clientes C ON P.Id_Cliente = C.Id_Cliente;
+
+-- ********************************** AGRUPACION EXTRA *****************************************
+---- Ventas totales por metodo de pago
+SELECT 
+    MP.Metodo,
+    COUNT(P.Id_Pedido) AS Total_Pedidos,
+    SUM(F.Monto_Total) AS Total_Ventas
+FROM Pedidos P
+JOIN Facturas F ON P.Id_Pedido = F.Id_Pedido
+JOIN Metodos_Pago MP ON P.Id_Metodo_Pago = MP.Id_Metodo_Pago
+GROUP BY MP.Metodo
+ORDER BY Total_Ventas DESC;
