@@ -627,7 +627,9 @@ INSERT INTO [Facturas] ([Id_Pedido], [IVA], [Monto_Total]) VALUES
 (10, 9405, 58905);
 GO
 ------------------------------------
+
 -- ************************************ SELECTS BASICOS ************************************
+
 SELECT * FROM Productos
 WHERE Precio_Venta <= 10000;
 ---
@@ -645,3 +647,18 @@ ORDER BY Salario ASC;
 SELECT Nombre_Completo, Correo FROM Clientes 
 WHERE Id_Programa_Lealtad IS NULL
 ORDER BY Nombre_Completo;
+
+-- ************************************ UPDATES ************************************
+UPDATE Pedidos 
+SET Id_Estado_Pedido = 2 -- Completado
+WHERE Id_Pedido = 1 AND Id_Cliente = 3;
+
+UPDATE Productos
+SET Precio_Venta = 7000
+WHERE Nombre = 'Mini brownies horneaditos 12 und 280 grs';
+
+UPDATE Inventarios
+SET Stock_Actual = Stock_Actual + 100, Ultima_Actualizacion = GETDATE()
+WHERE Id_Producto = 1;
+
+-- ************************************ UPDATES ************************************
