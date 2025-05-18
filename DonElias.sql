@@ -107,7 +107,7 @@ VALUES
 
 (1, NULL, 'Yogur Alpina fresa 150g', 3200, 2400, 100, '2025-07-20'),
 
-(2, NULL, 'Pollo entero congelado', 9200, 7200, 60, '2025-08-10'),
+(2, NULL, 'Pollo entero congelado', 9200, 7200, 10, '2025-08-10'),
 
 (4, 4, 'Aceite Premier 900ml', 9120, 7200, 180, '2025-11-01'),
 
@@ -115,7 +115,7 @@ VALUES
 
 (5, NULL, 'Pan tajado Bimbo integral 500g', 8500, 6700, 110, '2025-06-15'),
 
-(6, NULL, 'Gaseosa Postobon Manzana 2L', 6000, 4800, 140, '2025-12-31'),
+(6, NULL, 'Gaseosa Postobon Manzana 2L', 6000, 4800, 30, '2025-12-31'),
 
 (8, NULL, 'Lentejas x1kg', 7300, 5900, 70, '2026-04-10'),
 
@@ -143,15 +143,44 @@ GO
 INSERT INTO [Lotes] ([Fecha_Produccion], [Fecha_Vencimiento]) 
 VALUES
 ('2025-01-10', '2025-07-10'),
+
 ('2025-02-15', '2025-08-15'),
+
 ('2025-03-01', '2025-09-01'),
+
 ('2025-03-20', '2025-09-20'),
+
 ('2025-04-05', '2025-10-05'),
+
 ('2025-04-25', '2025-10-25'),
+
 ('2025-05-01', '2025-11-01'),
+
 ('2025-05-05', '2025-11-05'),
+
 ('2025-05-10', '2025-11-10'),
-('2025-05-11', '2025-11-11');
+
+('2025-05-11', '2025-11-11'),
+
+('2025-05-12', '2025-11-12'),
+
+('2025-05-13', '2025-11-13'),
+
+('2025-05-14', '2025-11-14'),
+
+('2025-05-15', '2025-11-15'),
+
+('2025-05-16', '2025-11-16'),
+
+('2025-05-17', '2025-11-17'),
+
+('2025-05-18', '2025-11-18'),
+
+('2025-05-19', '2025-11-19'),
+
+('2025-05-20', '2025-11-20'),
+
+('2025-05-21', '2025-11-21');
 GO
 
 --------------------
@@ -168,15 +197,44 @@ GO
 INSERT INTO [Lotes_Productos] ([Id_Producto], [Id_Lote]) 
 VALUES
 (1, 1),
+
 (2, 2),
+
 (3, 3),
+
 (4, 4),
+
 (5, 5),
+
 (6, 6),
+
 (7, 7),
+
 (8, 8),
+
 (9, 9),
-(10, 10);
+
+(10, 10),
+
+(11, 11),
+
+(12, 12),
+
+(13, 13),
+
+(14, 14),
+
+(15, 15),
+
+(16, 16),
+
+(17, 17),
+
+(18, 18),
+
+(19, 19),
+
+(20, 20);
 GO
 
 ------------------------------
@@ -232,15 +290,44 @@ GO
 INSERT INTO [Productos_Proveedores]([Id_Producto], [Id_Proveedor])
 VALUES
 (1, 1),
+
 (2, 2),
+
 (3, 3),
+
 (4, 4),
+
 (5, 5),
+
 (6, 6),
+
 (7, 7),
+
 (8, 8),
+
 (9, 9),
-(10, 10);
+
+(10, 10),
+
+(11, 1),  
+
+(12, 3), 
+
+(13, 9),  
+
+(14, 3),
+
+(15, 2),  
+
+(16, 9),  
+
+(17, 4),  
+
+(18, 10), 
+
+(19, 8),  
+
+(20, 10);
 GO
 -------------------------------
 
@@ -259,15 +346,44 @@ INSERT INTO [Inventarios]
 ([Id_Producto], [Stock_Actual], [Stock_Minimo], [Ultima_Actualizacion])
 VALUES 
 (1, 150, 30, '2025-05-01'),   
+
 (2, 200, 50, '2025-04-28'),   
+
 (3, 300, 100, NULL),          
+
 (4, 180, 40, '2025-05-05'),   
+
 (5, 120, 20, NULL),           
+
 (6, 160, 30, '2025-05-08'),   
+
 (7, 250, 60, NULL),           
+
 (8, 130, 25, '2025-05-07'),   
+
 (9, 140, 35, NULL),           
-(10, 80, 15, '2025-05-06');   
+
+(10, 80, 45, '2025-05-06'),
+
+(11, 180, 40, '2025-05-09'),
+
+(12, 90, 20, NULL),
+
+(13, 110, 30, '2025-05-10'),
+
+(14, 30, 40, NULL),
+
+(15, 70, 20, '2025-05-11'),
+
+(16, 140, 35, '2025-05-12'),
+
+(17, 80, 20, NULL),
+
+(18, 75, 25, '2025-05-13'),
+
+(19, 130, 30, NULL),
+
+(20, 80, 20, '2025-05-14');
 GO
 
 -------------------------------
@@ -497,11 +613,8 @@ INSERT INTO [Metodos_Pago] ([Metodo]) VALUES
 ('Efectivo'),
 ('Tarjeta de crédito'),
 ('Tarjeta débito'),
-('PSE'),
 ('Nequi'),
-('Daviplata'),
-('Bono regalo'),
-('Pago contra entrega');
+('Daviplata');
 GO
 -------------------------------
 
@@ -547,15 +660,15 @@ VALUES
 
 (5, 2, 4, '2024-03-05', 76000),
 
-(6, 1, 6, '2024-04-02', 51000),
+(6, 1, 1, '2024-04-02', 51000),
 
 (7, 2, 2, '2024-03-29', 98000),
 
-(8, 1, 8, '2024-04-11', 36000),
+(8, 1, 1, '2024-04-11', 36000),
 
 (9, 2, 3, '2024-04-08', 73500),
 
-(10, 1, 1, '2024-04-12', 49500);
+(10, 1, 4, '2024-04-12', 49500);
 GO
 -------------------------------
 
@@ -661,4 +774,23 @@ UPDATE Inventarios
 SET Stock_Actual = Stock_Actual + 100, Ultima_Actualizacion = GETDATE()
 WHERE Id_Producto = 1;
 
--- ************************************ UPDATES ************************************
+-- ************************************ JOINS ************************************
+-- Saber cuales son los productos más vendidos:
+SELECT P.Nombre, SUM(PP.Cantidad) AS Total_Vendido
+FROM Pedidos_Productos PP
+JOIN Productos P ON PP.Id_Producto = P.Id_Producto
+GROUP BY P.Nombre
+ORDER BY Total_Vendido DESC;
+
+-- Ver productos a punto de agotarse
+SELECT P.Nombre, I.Stock_Actual, I.Stock_Minimo
+FROM Productos P
+JOIN Inventarios I ON P.Id_Producto = I.Id_Producto
+WHERE I.Stock_Actual <= I.Stock_Minimo;
+
+-- Ver los clientes frecuentes:
+SELECT C.Nombre_Completo, COUNT(P.Id_Pedido) AS Total_Pedidos, SUM(F.Monto_Total) AS Total_Gastado
+FROM Clientes C
+JOIN Pedidos P ON C.Id_Cliente = P.Id_Cliente
+JOIN Facturas F ON P.Id_Pedido = F.Id_Pedido
+GROUP BY C.Nombre_Completo;
