@@ -206,7 +206,7 @@ VALUES
 
 ('Fernando Jose Ruiz Salazar', '3109981122', 'Lacteos', 'fernando.ruiz@alqueria.com', 'Calle 50 #32-10'),
 
-('Beatriz Elena Quintero Vargas', '+1 3011122334', 'Endulzantes', 'beatriz.quintero@riopaila.com', 'Carrera 
+('Beatriz Elena Quintero Vargas', '3011122334', 'Endulzantes', 'beatriz.quintero@riopaila.com', 'Carrera 
 11 #56-89'),
 
 ('Jorge Alberto Martinez Rincon', '3178899001', 'Pastas', 'jorge.martinez@doria.com', 'Av. Nutribella #11-34'),
@@ -459,27 +459,27 @@ VALUES
 
 (3, 'Carlos Andrés Torres Jiménez', 'carlos.torres@hotmail.com', '3156789012'),
 
-(4, 'Laura Vanessa Martínez Díaz', 'laura.martinez@gmail.com', '+1 210 403 8284'),
+(4, 'Laura Vanessa Martínez Díaz', 'laura.martinez@gmail.com', '3012301948'),
 
 (5, 'José Manuel Herrera Castro', 'jose.herrera@outlook.com', '3161234567'),
 
-(6, 'Ana Sofía Ramírez Morales', 'ana.ramirez@gmail.com', '+1 523 543 1642'),
+(6, 'Ana Sofía Ramírez Morales', 'ana.ramirez@gmail.com', '3012303348'),
 
 (7, 'David Santiago Ruiz Peña', 'david.ruiz@gmail.com', '3178765432'),
 
 (8, 'Camila Daniela Romero Vargas', 'camila.romero@gmail.com', '3145678901'),
 
-(9, 'Mateo Nicolás Castaño Mejía', 'mateo.castano@gmail.com', '+1 253 253 2950'),
+(9, 'Mateo Nicolás Castaño Mejía', 'mateo.castano@gmail.com', '3119873480'),
 
 (10, 'Valentina Isabel Pineda Lozano', 'valentina.pineda@gmail.com', '3120987654'),
 
-(NULL, 'Jorge Alejandro Magno Maldonado' ,'alejandromagperez@gmail.com', '+1 555 555 1234'),
+(NULL, 'Jorge Alejandro Magno Maldonado' ,'alejandromagperez@gmail.com', '3115941390'),
 
-(NULL, 'Sofia Marcela Reyes Delgado', 'sofia.reyes@gmail.com', '+1 532 124 5323'),
+(NULL, 'Sofia Marcela Reyes Delgado', 'sofia.reyes@gmail.com', '3024525439'),
 
 (NULL, 'Esteban David Moreno Páez', 'esteban.moreno@hotmail.com', '3124567890'),
 
-(NULL, 'Luisa Fernanda Acosta Ríos', 'luisa.acosta@outlook.com', '+1 934 235 1954'),
+(NULL, 'Luisa Fernanda Acosta Ríos', 'luisa.acosta@outlook.com', '3008942490'),
 
 (NULL, 'Diego Alejandro Muñoz Londoño', 'diego.munoz@gmail.com', '3134567812'),
 
@@ -642,18 +642,6 @@ WHERE Edad <= 20
 ORDER BY Salario ASC;
 
 ---
-SELECT Id_Sucursal, Direccion, Capacidad_Almacenamiento FROM Sucursales
-ORDER BY Capacidad_Almacenamiento DESC;
-
----
 SELECT Nombre_Completo, Correo FROM Clientes 
 WHERE Id_Programa_Lealtad IS NULL
 ORDER BY Nombre_Completo;
-
----
-SELECT Nombre_Completo, Correo FROM Clientes 
-WHERE Telefono LIKE '+1%';
-
-SELECT Nombre_Completo, Correo FROM Clientes 
-WHERE Telefono NOT LIKE '+1%';
----
